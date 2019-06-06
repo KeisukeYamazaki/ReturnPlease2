@@ -8,6 +8,23 @@ function ReturnPlease2() {
   var list = sheet.getRange("A100:L101").getValues();
   
   for(var i = 0; i < area.length; i++) {
+    switch(i) {
+      case 0:
+        list[list_r][list_c] = "＜中３＞"
+        list_r += 1;
+        list[list_r] = ["",""];
+        break;
+      case 3:
+        list[list_r][list_c] = "＜中2＞"
+        list_r += 1;
+        list[list_r] = ["",""];
+        break;
+      case 5:
+        list[list_r][list_c] = "＜中1＞"
+        list_r += 1;
+        list[list_r] = ["",""];
+        break;
+    }
     var data = sheet.getRange(area[i]).getValues();
     outerLoop:
     for(var j = 0; j < data.length; j++) {
@@ -99,6 +116,7 @@ function ReturnPlease2() {
       }
     }   
   }
+  
   var r = sheet.getLastRow() + 3;
   var c = 4;
   for(i = 0; i < list.length; i++) {
